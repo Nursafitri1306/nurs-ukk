@@ -1,6 +1,5 @@
 @extends('layout.main')
 @section('container')
-
   <div class="album py-5 bg-body-tertiary">
     <div class="container">
     <div class="row pb-3">
@@ -10,7 +9,7 @@
           <img class="card-img-top mb-2" src="{{asset('storage/'.$photo->file_location)}}" alt="" style="width: 100%;" />
           <div class="card-body bg-light text-center p-4">
             <h4>{{$photo->photo_title}}</h4>  
-            <a href="/detail" class="btn btn-outline-secondary">View</a>
+            <a href="/detail/{{$photo->photoId}}" class="btn btn-outline-secondary">View</a>
           </div>
         </div>
       </div>

@@ -148,8 +148,6 @@ class PhotoController extends Controller
     return redirect('/admin/data-photo')->with('success', 'Photo telah diperbarui!');
 }
 
-
-
     /**
      * Remove the specified resource from storage.
      *

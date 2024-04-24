@@ -4,6 +4,7 @@
 use App\Http\Controllers\AlbumController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LikeController;
+use App\Http\Controllers\PhotoCommentController;
 use App\Http\Controllers\PhotoController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\GalleryController;
@@ -21,6 +22,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [GalleryController::class, 'index']);
+Route::get('/detail-album/{id}/detail', [GalleryController::class, 'detail_album']);
 
 Route::get('gallery', function (){
     return view('gallery.index');
@@ -40,6 +42,8 @@ Route::get('/dashboard', [DashboardController::class, 'dashboard']);
 Route::resource('/admin/album', AlbumController::class)->middleware('auth');
 Route::resource('/admin/data-photo', PhotoController::class)->middleware('auth');
 Route::get('/detail/{photoId}', [PhotoController::class, 'show']);
+Route::post('/detail/{id}', [PhotoCommentController::class, 'storeComment']);
+Route::get('/detail/{photoId}/like', [LikeController::class, 'like']);
 
 
 Route::get('detail', function(){
