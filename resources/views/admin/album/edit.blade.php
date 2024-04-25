@@ -6,7 +6,6 @@
         <div class="card-header">
           <h4>Form Edit</h4>
         </div>
-        
         <form method="post" action="/admin/album/{{$album->albumId}}" class="mb-5" enctype="multipart/form-data">
         @method('PUT')
         @csrf

@@ -31,8 +31,6 @@
               <td>{{$photo->userId}}</td>
               <td>
                 <div class="btn-group" role="group">
-                    <a href="/admin/data-photo/{{ $photo->photoId }}/edit" class="btn btn-outline-primary"><i class="bi bi-pencil-square"></i></a>
-
                     <form action="/admin/data-photo/{{ $photo->photoId }}" method="POST" class="d-inline">
                     @method('delete')
                     @csrf

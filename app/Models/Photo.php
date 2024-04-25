@@ -16,8 +16,9 @@ class Photo extends Model
     public function user(){
         return $this->belongsTo(User::class, 'userId');
     }
-    public function album(){
-        return $this->belongsTo(Album::class);
+    public function album()
+    {
+        return $this->belongsTo(Album::class, 'albumId');
     }
     public function comments()
     {

@@ -23,7 +23,7 @@ class PhotoController extends Controller
         $user = User::all();
         $album = Album::all();
         $photo = Photo::all();
-        return view('admin.data-photo.index', ['photo' => $photo]);
+        return view('admin.data-photo.index', ['photo' => $photo, 'album' => $album]);
     }
 
     /**
@@ -104,16 +104,7 @@ class PhotoController extends Controller
      */ 
     public function edit(int $photoId)
     {
-        $photo = Photo::where('photoId', $photoId)->first();
-        $user = User::all();
-        $album = Album::get();
-        
-    // Periksa jika album ditemukan
-    if (!$photo) {
-        abort(404); // Tampilkan halaman 404 jika album tidak ditemukan
-    }
-
-    return view('/admin.data-photo.edit', compact(['photo']));
+       //
     }
 
     /**
@@ -125,27 +116,7 @@ class PhotoController extends Controller
      */
     public function update(Request $request, int $photoId)
 {
-    $tanggal = Carbon::now()->toDateTimeString();
-    
-    $photo = Photo::where('photoId', $photoId)->first();
-    
-    $photo->photo_title = $request->photo_title;
-    $photo->photo_description = $request->photo_description;
-    $photo->albumId = $request->albumId;
-    
-    if ($request->hasFile('file_location')) {
-        $file = $request->file('file_location');
-        $path = storage_path('app/public');
-        $file_name = 'public/' . date('Ymd') . '-' . $file->getClientOriginalName();
-        $file->storeAs('public', $file_name);
-        $photo->file_location = $file_name;
-    }
-
-    $photo->userId = auth()->user()->userId;
-
-    $photo->save();
-
-    return redirect('/admin/data-photo')->with('success', 'Photo telah diperbarui!');
+   //
 }
 
     /**
